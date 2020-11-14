@@ -36,7 +36,7 @@ osp_servers:
     state: present
     group: frontends
     deployment: QA
-    security_group_name: frontend_servers
+    security_group_name: frontend
     key_name: ansible_ssh
     int_network: int_network
     ext_network: ext_network

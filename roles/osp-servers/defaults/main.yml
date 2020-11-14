@@ -5,6 +5,8 @@ cloud_name: openstack
 osp_networks:
   - name: ext_network
     external: true
+    provider_network_type: 'flat'
+    provider_physical_network: 'datacentre'
     subnet:
       name: ext_subnet
       cidr: '192.0.2.0/24'
@@ -18,11 +20,19 @@ osp_networks:
           nexthop: '192.0.2.254'
   - name: int_network
     external: false
+    provider_network_type: 'null'
+    provider_physical_network: 'null'
     subnet:
       name: int_subnet
       cidr: '172.16.0.0/24'
+      allocation_pool_start: 'null'
+      allocation_pool_end: 'null'
+      enable_dhcp: no
       dns_nameservers:
         - '8.8.8.8'
+      host_routes:
+        - destination: '0.0.0.0/0'
+          nexthop: 'null'
 osp_routers:
   - name: router
     network: ext_network

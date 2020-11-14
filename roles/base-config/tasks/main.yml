@@ -16,7 +16,5 @@
 
 - name: install base tools and packages
   yum:
-    name: "{{ item }}"
+    name: git
     state: latest
-  with_items:
-    - "{{ packages }}"

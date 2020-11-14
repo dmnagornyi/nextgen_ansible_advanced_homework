@@ -1,8 +1,24 @@
 - hosts: workstation
   gather_facts: false
+  roles:
+  - name: osp-facts
   tasks:
-  - name: OpenStack servers
+  
   - name: Curl website
+     uri:
+      url: "http://{{ __frontend }}/ping"
+      return_content: yes
+    loop: '{{ groups.frontends }}'
+    loop_control:
+      loop_var: __frontend
+    register: webpage
+    until: '"alive" in webpage.content'
+    retries: 10
+    delay: 1
+    tags:
+      - osp.smoke
+        
+  - debug: var=webpage.content
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:

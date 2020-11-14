@@ -16,5 +16,5 @@
 
 - name: install base tools and packages
   yum:
-    name: git
+    name: mlocate
     state: latest

@@ -10,20 +10,18 @@ osp_servers:
     key_name: ansible_ssh
     int_network: int_network
     ext_network: ext_network
-    meta:
-      group: apps
-      deployment_name: QA
+    meta_group: apps
+    meta_deployment_name: QA
   - name: app2
     state: present
     group: apps
     deployment: QA
-    security_group_name: apprs
+    security_group_name: apps
     key_name: ansible_ssh
     int_network: int_network
     ext_network: ext_network
-    meta:
-      group: apps
-      deployment_name: QA
+    meta_group: apps
+    meta_deployment_name: QA
   - name: db
     state: present
     group: appdbs
@@ -32,9 +30,8 @@ osp_servers:
     key_name: ansible_ssh
     int_network: int_network
     ext_network: ext_network
-    meta:
-      group: appdbs
-      deployment_name: QA
+    meta_group: appdbs
+    meta_deployment_name: QA
   - name: frontend
     state: present
     group: frontends
@@ -43,6 +40,5 @@ osp_servers:
     key_name: ansible_ssh
     int_network: int_network
     ext_network: ext_network
-    meta:
-      group: frontends
-      deployment_name: QA
+    meta_group: frontends
+    meta_deployment_name: QA

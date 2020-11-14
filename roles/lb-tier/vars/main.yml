@@ -1,1 +1,8 @@
-payload: haproxy
+---
+# vars file for lb-tier
+
+packages:
+  - httpie
+  - haproxy
+haproxy_cfg: /etc/haproxy/haproxy.cfg
+haproxy_group: apps

@@ -8,7 +8,7 @@
     state: "{{ item.state }}"
     image: rhel-guest
     meta: "group={{ item.group }},deployment_name={{ item.deployment }}"
-    flavor: m2.small
+    flavor: m1.medium
     security_groups: "{{ item.security_group_name }}"
     key_name: ansible_ssh
     delete_fip: true

@@ -19,3 +19,4 @@
   yum:
     name: '*'
     state: latest
+  notify: yum-reboot

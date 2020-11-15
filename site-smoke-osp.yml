@@ -6,11 +6,9 @@
   
   - name: Curl website
     uri:
-      url: "http://{{ __frontend }}/ping"
+      url: "http://{{ item }}"
       return_content: yes
     loop: '{{ groups.frontends }}'
-    loop_control:
-      loop_var: __frontend
     register: webpage
     until: '"alive" in webpage.content'
     retries: 10

@@ -10,13 +10,11 @@
       return_content: yes
     loop: '{{ groups.frontends }}'
     register: webpage
-    until: webpage.status == "200"
+    until: "'OK' in webpage.msg"
     retries: 15
     delay: 2
     tags:
       - osp.smoke
-        
-  - debug: var=webpage.content
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:

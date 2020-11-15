@@ -10,9 +10,9 @@
       return_content: yes
     loop: '{{ groups.frontends }}'
     register: webpage
-    until: '"alive" in webpage.content'
-    retries: 10
-    delay: 1
+    until: webpage.status == "200"
+    retries: 15
+    delay: 2
     tags:
       - osp.smoke
         

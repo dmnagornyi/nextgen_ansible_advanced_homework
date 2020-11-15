@@ -14,6 +14,3 @@
     dest: /etc/yum.repos.d/internal.repo
     mode: 0644
   notify: yum-clean-metadata
-    
-- name: refresh repos
-  command: yum clean all

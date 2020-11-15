@@ -13,10 +13,7 @@
     src: repos_template.j2
     dest: /etc/yum.repos.d/internal.repo
     mode: 0644
-    
-- rpm_key:
-    state: present
-    key: https://www.opentlc.com/download/ansible_bootcamp/repo/RPM-GPG-KEY-PGDG-96
+  notify: yum-clean-metadata
     
 - name: refresh repos
   command: yum clean all

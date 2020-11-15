@@ -5,7 +5,7 @@
   tasks:
   
   - name: Curl website
-     uri:
+    uri:
       url: "http://{{ __frontend }}/ping"
       return_content: yes
     loop: '{{ groups.frontends }}'

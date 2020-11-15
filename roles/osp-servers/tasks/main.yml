@@ -2,5 +2,5 @@
 # main.yml tasks file for osp-servers
 
   - include_tasks: instances.yml
-    with_items:
+    loop:
       - "{{ osp_servers }}"
